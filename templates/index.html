@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A deeply researched August 2026 Rise of Kingdoms meta guide for commanders, marches, gear, formations, and KvK progression.">
+  <meta name="theme-color" content="#101b20">
+  <title>ROK Meta // Field Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+<body>
+  <div class="progress-rail" aria-hidden="true"><span id="reading-progress"></span></div>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="ROK Meta home">
+      <span class="brand-mark">R</span>
+      <span><b>ROK META</b><small>FIELD INTELLIGENCE</small></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span><span class="sr-only">Toggle navigation</span>
+    </button>
+    <nav id="main-nav" aria-label="Primary navigation">
+      <a href="#route">0→Hero</a>
+      <a href="#snapshot">Snapshot</a>
+      <a href="#marches">Marches</a>
+      <a href="#systems">Systems</a>
+      <a href="#sources">Sources</a>
+    </nav>
+    <a class="header-status" href="#method"><i></i> Updated 08.08.26</a>
+  </header>
+
+  <main>
+    <section class="hero grid-noise" aria-labelledby="hero-title">
+      <div class="hero-grid"></div>
+      <div class="hero-orbit orbit-one"></div>
+      <div class="hero-orbit orbit-two"></div>
+      <div class="hero-content wrap">
+        <div class="hero-copy reveal">
+          <p class="kicker"><span>ZERO // HERO</span> MIN–MAX ROUTE 2026</p>
+          <h1 id="hero-title">Start clean.<br>Scale <em>fast.</em></h1>
+          <p class="hero-deck">The fastest responsible route from a fresh city to a competitive KvK account—daily actions, hard investment rules, power checkpoints, and the modern marches you're building toward.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#route">Start the route <span>↘</span></a>
+            <a class="button button-ghost" href="#marches">See the destination</a>
+          </div>
+        </div>
+        <aside class="signal-card reveal delay-1" aria-label="Current meta signal">
+          <div class="signal-top"><span>OPEN FIELD SIGNAL</span><b>STRONG</b></div>
+          <div class="radar" aria-hidden="true">
+            <div class="radar-ring r1"></div><div class="radar-ring r2"></div><div class="radar-ring r3"></div>
+            <div class="radar-cross x"></div><div class="radar-cross y"></div>
+            <div class="radar-sweep"></div>
+            <span class="blip b1"></span><span class="blip b2"></span><span class="blip b3"></span>
+            <div class="radar-core">0→25<small>CITY HALL</small></div>
+          </div>
+          <div class="signal-readouts">
+            <div><small>START CIV</small><strong>CHINA</strong></div>
+            <div><small>ACCOUNT RULE</small><strong>NO IDLE QUEUES</strong></div>
+            <div><small>INVESTMENT CORE</small><strong>FINISH ONE</strong></div>
+          </div>
+        </aside>
+      </div>
+      <div class="hero-foot wrap">
+        <p><span>RESEARCH WINDOW</span> Sources through August 8, 2026</p>
+        <p><span>SCOPE</span> Fresh account → KvK1 → SoC</p>
+        <a href="#route">Begin at day zero <b>↓</b></a>
+      </div>
+    </section>
+
+    <section class="route section wrap" id="route" aria-labelledby="route-title">
+      <div class="section-head reveal">
+        <div>
+          <p class="kicker dark"><span>01</span> ZERO-TO-HERO ROUTE</p>
+          <h2 id="route-title">The fastest clean<br><em>account trajectory.</em></h2>
+        </div>
+        <p>Power bands are competitive reference ranges, not promises. Alliance strength, activity, luck, spending, and kingdom rules move them dramatically.</p>
+      </div>
+
+      <div class="route-alert reveal">
+        <div><span>!</span><b>2026 START METHOD UPDATE</b></div>
+        <p><strong>VERIFY CURRENT IN-GAME RULES:</strong> new-account migration, Pioneer systems, geographic access, and kingdom-age restrictions change repeatedly. Do not build an entire restart around a sleeper/jumper move unless the exact destination and eligibility are verified immediately beforehand. For organized projects, create in or target the actual destination kingdom whenever current mechanics allow it.</p>
+      </div>
+
+      <aside class="philosophy reveal" aria-label="Core progression philosophy">
+        <p>CORE PROGRESSION PHILOSOPHY</p>
+        <h3>Top alliance → nonstop account growth → concentrate resources → one excellent march → expand only when the account can support it.</h3>
+        <p>Your alliance accelerates gifts, territory, helps, and rewards. Keep builders, research, training, scouting, gathering, guardians, and natural AP working; let early farms mature before shortages become severe.</p>
+      </aside>
+
+      <div class="route-layout">
+        <div class="route-timeline">
+          {% for phase in roadmap %}
+          <article class="route-phase reveal">
+            <div class="route-node"><span>{{ '%02d'|format(loop.index) }}</span></div>
+            <div class="route-phase-head">
+              <p>{{ phase.window }}</p>
+              <h3>{{ phase.target }}</h3>
+              <b>{{ phase.power }}</b>
+            </div>
+            <ol>
+              {% for action in phase.actions %}<li><span>{{ loop.index }}</span>{{ action }}</li>{% endfor %}
+            </ol>
+            <aside><small>EXIT CHECK</small><p>{{ phase.checkpoint }}</p></aside>
+          </article>
+          {% endfor %}
+        </div>
+
+        <aside class="route-sidebar">
+          <div class="sticky-card reveal">
+            <p class="sticky-label">NON-NEGOTIABLES</p>
+            <h3>The six compounding loops</h3>
+            <div class="loop-item"><span>01</span><p><b>Builders</b>Both active, 24/7</p></div>
+            <div class="loop-item"><span>02</span><p><b>Academy</b>Research never idle</p></div>
+            <div class="loop-item"><span>03</span><p><b>Training</b>Every troop queue running</p></div>
+            <div class="loop-item"><span>04</span><p><b>Scouts</b>Fog, caves, villages nonstop</p></div>
+            <div class="loop-item"><span>05</span><p><b>Action points</b>Never capped</p></div>
+            <div class="loop-item"><span>06</span><p><b>Gathering</b>Every march, every logout</p></div>
+            <div class="compound-note"><b>Why it matters</b><p>Missing one 8-hour queue is small. Repeating it for 90 days is the gap between the main alliance and the bench.</p></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="daily section" id="daily" aria-labelledby="daily-title">
+      <div class="wrap">
+        <div class="section-head inverse reveal">
+          <div>
+            <p class="kicker"><span>02</span> DAILY OPERATING SYSTEM</p>
+            <h2 id="daily-title">Run this loop.<br><em>Every day.</em></h2>
+          </div>
+          <p>The min-max edge is less about one secret purchase than a day with no dead time.</p>
+        </div>
+        <div class="daily-loop reveal">
+          {% for item in daily_loop %}
+          <div class="daily-item"><span>{{ '%02d'|format(loop.index) }}</span><time>{{ item[0] }}</time><p>{{ item[1] }}</p></div>
+          {% endfor %}
+        </div>
+        <div class="speedup-formula reveal">
+          <span>LONG TIMER</span><b>＋</b><span>ALLIANCE HELP</span><b>＋</b><span>BUILD / RESEARCH RUNE</span><b>＋</b><span>KINGDOM TITLE</span><b>→</b><strong>THEN SPEED UP</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="briefing section wrap" id="snapshot" aria-labelledby="snapshot-title">
+      <div class="section-head reveal">
+        <div>
+          <p class="kicker dark"><span>03</span> ENDGAME COMPASS</p>
+          <h2 id="snapshot-title">The meta in <em>90 seconds.</em></h2>
+        </div>
+        <p>These are the durable conclusions behind the tier-list noise.</p>
+      </div>
+      <div class="brief-grid">
+        <article class="lead-brief reveal">
+          <span class="brief-index">A</span>
+          <div class="brief-icon">◎</div>
+          <p class="brief-label">THE ACCOUNT RULE</p>
+          <h3>Finish the strongest march your account can support.</h3>
+          <p>Gear, research, armaments, commander progress, sculptures, pairings, account age, and spend determine the next project. Branch into another troop type only when you can equip and support it properly.</p>
+          <div class="ratio-bar" aria-label="Concentrate, finish, then expand">
+            <span class="inf">FOCUS</span><span class="archer">FINISH</span><span class="cav">EXPAND</span>
+          </div>
+        </article>
+        <article class="brief-card reveal delay-1">
+          <span class="brief-index">B</span>
+          <p class="brief-label">THE DAMAGE RULE</p>
+          <h3>True, Smite & skill pressure</h3>
+          <p>Modern kits bypass or punish traditional mitigation. Pincer and Wedge are not optional flavor—they unlock the marches.</p>
+          <span class="trend up">↑ META DEFINING</span>
+        </article>
+        <article class="brief-card reveal delay-2">
+          <span class="brief-index">C</span>
+          <p class="brief-label">THE VALUE RULE</p>
+          <h3>Gear before march count</h3>
+          <p>Accessories, armaments, and Crystal Tech multiply good commanders. A naked fourth march is hospital pressure.</p>
+          <span class="trend steady">→ HIGH CONFIDENCE</span>
+        </article>
+        <article class="brief-card warning reveal delay-3">
+          <span class="brief-index">D</span>
+          <p class="brief-label">THE TRAP</p>
+          <h3>Best commander ≠ best investment</h3>
+          <p>A meta leader can still be wrong for an account that cannot finish the commander, deputy, gear, research, or armaments. Existing progress and a planned swap can make a lower-ranked route more efficient.</p>
+          <span class="trend down">↓ FRESH PRIORITY</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="march-section section" id="marches" aria-labelledby="march-title">
+      <div class="wrap">
+        <div class="section-head inverse reveal">
+          <div>
+          <p class="kicker"><span>04</span> OPEN FIELD // SOC DESTINATION</p>
+            <h2 id="march-title">The endgame <em>reference board.</em></h2>
+          </div>
+          <p>These pairings describe a theoretical field ceiling, not a fresh-account build order. Rank strength and account investment value are different questions.</p>
+        </div>
+
+        <div class="march-toolbar reveal" role="group" aria-label="Filter marches by troop type">
+          <div class="filter-set">
+            <button class="filter active" type="button" data-filter="all">All units <b>5</b></button>
+            <button class="filter" type="button" data-filter="Infantry">Infantry <b>2</b></button>
+            <button class="filter" type="button" data-filter="Archer">Archer <b>2</b></button>
+            <button class="filter" type="button" data-filter="Cavalry">Cavalry <b>1</b></button>
+          </div>
+          <p><i></i> Endgame field strength—not mandatory investment order</p>
+        </div>
+
+        <div class="march-list">
+          {% for march in marches %}
+          <article class="march-row reveal" data-troop="{{ march.troop }}">
+            <div class="march-rank"><small>RANK</small><strong>0{{ march.rank }}</strong></div>
+            <div class="unit-stripe {{ march.troop|lower }}"></div>
+            <div class="pairing">
+              <div class="commander-badge primary {{ march.troop|lower }}">{{ march.primary[0] }}<span>P</span></div>
+              <div>
+                <p class="unit-label">{{ march.troop }} · {{ march.archetype }}</p>
+                <h3>{{ march.primary }} <span>＋</span> {{ march.secondary }}</h3>
+                <p>{{ march.why }}</p>
+              </div>
+            </div>
+            <div class="march-specs">
+              <div><small>FORMATION</small><strong>{{ march.formation }}</strong></div>
+              <div><small>ALTERNATE</small><strong>{{ march.swap }}</strong></div>
+              <div><small>STATUS</small><strong>{{ march.confidence }}</strong></div>
+            </div>
+            <div class="grade"><small>FIELD</small><b>{{ march.grade }}</b></div>
+            <details>
+              <summary>Investment read <span>＋</span></summary>
+              <p>{{ march.investment }}</p>
+            </details>
+          </article>
+          {% endfor %}
+        </div>
+        <div class="field-note reveal">
+          <b>ACCOUNT RULE</b>
+          <p>Finish the strongest march your existing gear, research, armaments, and commander investment can support. QSH/YSG, Sun Prime/Bai Qi, and Arthur/Achilles remain useful endgame references, but an infantry-developed account should not abandon its advantage merely because archers rank slightly higher.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section progression wrap" id="progression" aria-labelledby="progression-title">
+      <div class="section-head reveal">
+        <div>
+          <p class="kicker dark"><span>05</span> SEASON-SPECIFIC MARCHES</p>
+          <h2 id="progression-title">Play the season<br>you're <em>actually in.</em></h2>
+        </div>
+        <p>Meta advice without kingdom age is bad advice. Choose your current stage.</p>
+      </div>
+
+      <div class="stage-shell reveal">
+        <div class="stage-tabs" role="tablist" aria-label="Kingdom stage">
+          {% for stage in stages %}
+          <button id="tab-{{ stage.id }}" role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" aria-controls="panel-{{ stage.id }}" tabindex="{{ '0' if loop.first else '-1' }}" data-stage="{{ stage.id }}">
+            <span>0{{ loop.index }}</span><b>{{ stage.name }}</b><small>{{ stage.eyebrow }}</small>
+          </button>
+          {% endfor %}
+        </div>
+        {% for stage in stages %}
+        <div class="stage-panel {{ 'active' if loop.first }}" id="panel-{{ stage.id }}" role="tabpanel" aria-labelledby="tab-{{ stage.id }}" {% if not loop.first %}hidden{% endif %}>
+          <div class="stage-intro">
+            <div>
+              <p>{{ stage.name }} // FIELD PLAN</p>
+              <h3>{{ stage.title }}</h3>
+            </div>
+            <p>{{ stage.summary }}</p>
+          </div>
+          <div class="stage-body">
+            <div class="stage-marches">
+              <div class="mini-head"><span>RECOMMENDED MARCHES</span><span>WHY IT WORKS</span></div>
+              {% for march in stage.marches %}
+              <div class="stage-march">
+                <span>{{ march[0] }}</span><strong>{{ march[1] }}</strong><p>{{ march[2] }}</p>
+              </div>
+              {% endfor %}
+            </div>
+            <div class="orders">
+              <div class="do-list">
+                <h4><span>✓</span> FIELD ORDERS</h4>
+                {% for item in stage.do %}<p>{{ item }}</p>{% endfor %}
+              </div>
+              <div class="avoid-list">
+                <h4><span>×</span> AVOID</h4>
+                {% for item in stage.avoid %}<p>{{ item }}</p>{% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="accelerators section" id="accelerators" aria-labelledby="accelerators-title">
+      <div class="wrap">
+        <div class="section-head inverse reveal">
+          <div>
+            <p class="kicker"><span>06</span> ACCELERATORS</p>
+            <h2 id="accelerators-title">Spend time, gems<br>and money <em>once.</em></h2>
+          </div>
+          <p>The fastest route is an allocation problem. Every resource has one early job.</p>
+        </div>
+        <div class="allocation-grid">
+          <article class="allocation-card reveal">
+            <span>GEMS</span><h3>VIP 6 → 10 → 12</h3>
+            <p>Reach permanent second builder first. Then time large VIP-point purchases with More Than Gems. VIP 10/12 starts the daily gold-head engine; Books of Covenant become the next hard gate.</p>
+            <small>Wheel rule: unlock only, unless the commander is your fully funded project.</small>
+          </article>
+          <article class="allocation-card reveal delay-1">
+            <span>GOLD HEADS</span><h3>Save—or fund one planned donor</h3>
+            <p>Either bank universals, or deliberately invest in one high-value early legend with a commander-swap exit strategy. YSG can deliver KvK1/KvK2 AoE, chaining, long-term utility, and possible donor value.</p>
+            <small>Never scatter heads across mediocre 5511 projects. VERIFY CURRENT IN-GAME SWAP RULES before committing hundreds of sculptures.</small>
+          </article>
+          <article class="allocation-card reveal delay-2">
+            <span>UNIVERSAL SPEEDUPS</span><h3>Critical path only</h3>
+            <p>Use on City Hall/Academy gates and long military research after alliance helps, rune, title, and relevant event overlap. Specialized speedups go first.</p>
+            <small>Never speed what the alliance can help finish for free.</small>
+          </article>
+          <article class="allocation-card reveal delay-3">
+            <span>ACTION POINTS</span><h3>Natural now; bottles on value</h3>
+            <p>Keep natural AP below cap, use Peacekeeping talents and consecutive attacks, and save bottles for valuable event overlaps unless immediate progression value is greater.</p>
+            <small>For active min-maxers, AoE chaining turns one initiated attack into several barbarian kills.</small>
+          </article>
+        </div>
+
+        <div class="ap-playbook reveal">
+          <div class="ap-copy">
+            <p class="system-number">AP / COMMANDER XP PLAYBOOK</p>
+            <h3>Make every initiated attack do more.</h3>
+            <p>AoE barbarian chaining means paying AP to attack one barbarian, positioning an AoE commander so the skill hits nearby barbarians, then letting those extra targets aggro without initiating separate AP-costing attacks. Kill the group for the original engagement's AP cost. This is a major reason YSG can create account-development value beyond PvP.</p>
+            <aside><b>MIN–MAX CALLOUT</b><span>Chaining is manual and positioning-sensitive. Emphasize it when actively optimizing; casual players can prioritize reliable Peacekeeping runs.</span></aside>
+          </div>
+          <ol>
+            <li><span>01</span><p><b>Guardians first</b>Attend scheduled shrine and altar times for zero-AP commander XP.</p></li>
+            <li><span>02</span><p><b>Spend natural AP</b>Keep regeneration running instead of sitting at the cap.</p></li>
+            <li><span>03</span><p><b>Use Peacekeepers</b>Take AP-reduction talents and preserve consecutive-attack discounts.</p></li>
+            <li><span>04</span><p><b>AoE chain</b>Pull extra nearby barbarians into skill damage when practical.</p></li>
+            <li><span>05</span><p><b>Time AP bottles</b>Save for high-value events and reward overlaps unless progress now is worth more.</p></li>
+          </ol>
+        </div>
+
+        <div class="spend-lanes reveal">
+          <div class="spend-lane-head"><span>SPENDING LANE</span><span>BUY ORDER</span><span>WHAT IT CHANGES</span></div>
+          <div><b>F2P</b><p>Nothing. Farm gems, top-alliance gifts, events, forts.</p><span>More time and tighter roster; same discipline.</span></div>
+          <div><b>MICRO<br><small>~$5–25/mo</small></b><p>Growth Fund → 30-Day Gem Supply → Lucerne value tier → select Writer of History pop-ups.</p><span>Faster VIP and one better commander pipeline.</span></div>
+          <div><b>COMPETITIVE<br><small>~$50–150/mo</small></b><p>All micro value → material supply / Vanquisher as needed → event-efficient bundles. Set a hard monthly cap.</p><span>Earlier gear and sustained queues—not permission to build every legend.</span></div>
+        </div>
+
+        <div class="civ-farm-grid">
+          <article class="civ-route reveal">
+            <p class="system-number">CIVILIZATION ROUTE</p>
+            <div><span>START</span><b>CHINA</b><p>5% building speed, AP recovery, Sun Tzu sculptures.</p></div>
+            <i>→</i>
+            <div><span>POST CH25 / TRAINING</span><b>GERMANY</b><p>Training speed and AP recovery for general account growth.</p></div>
+            <i>→</i>
+            <div><span>WAR ROLE</span><b>FRANCE / OTTOMAN</b><p>France for healing/field durability; Ottoman for skill-heavy field lineups.</p></div>
+          </article>
+          <article class="farm-route reveal delay-1">
+            <p class="system-number">FARM ACCOUNT ROUTE</p>
+            <h3>Start the resource pipeline early.</h3>
+            <div class="farm-tiers" aria-label="Farm account recommendations by activity">
+              <span><b>0–1</b>Casual</span><span><b>≈2</b>Active F2P / low spend</span><span><b>3–4+</b>Heavy optimizer</span>
+            </div>
+            <ol>
+              <li><span>01</span>Create the first couple fairly early if your playtime allows—before the main is already resource-starved.</li>
+              <li><span>02</span>Develop gathering commanders and multiple marches; CH17 gives four and CH22 gives five.</li>
+              <li><span>03</span>Prioritize economy tech, production, city prerequisites, and Trading Post—not full-account combat progression.</li>
+              <li><span>04</span>Feed CH21/22, T4, research, upgrades, healing, and active KvK; transfer safely and account for tax.</li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="systems section" id="systems" aria-labelledby="systems-title">
+      <div class="wrap">
+        <div class="section-head inverse reveal">
+          <div>
+            <p class="kicker"><span>07</span> THE REAL POWER STACK</p>
+            <h2 id="systems-title">Commanders are only<br><em>one layer.</em></h2>
+          </div>
+          <p>Most bad investment advice compares commander names while silently assuming equal gear, tech, armaments, and control.</p>
+        </div>
+
+        <div class="stack-visual reveal" aria-label="Power stack from fundamentals to execution">
+          <div class="stack-layer l5"><span>05</span><b>EXECUTION</b><small>Position · focus · refresh</small></div>
+          <div class="stack-layer l4"><span>04</span><b>CRYSTAL TECH</b><small>Season-only multiplier</small></div>
+          <div class="stack-layer l3"><span>03</span><b>ARMAMENTS</b><small>Formation · inscriptions</small></div>
+          <div class="stack-layer l2"><span>02</span><b>EQUIPMENT</b><small>Stats · accessories · iconic</small></div>
+          <div class="stack-layer l1"><span>01</span><b>COMMANDERS</b><small>Skills · synergy · talents</small></div>
+        </div>
+
+        <div class="system-cards">
+          <article class="system-card reveal">
+            <p class="system-number">01 / EQUIPMENT</p>
+            <h3>Finish sets. Then expand.</h3>
+            <p>Prioritize health and defense efficiency, then the accessories that make the march's engine work. Random legendary pieces are not a build.</p>
+            <ul>
+              <li><b>First complete set</b><span>One field march that can stay out and trade.</span></li>
+              <li><b>Accessories</b><span>Ring/Horn or pairing-specific options before a weak new set.</span></li>
+              <li><b>Iconic & crits</b><span>Steady awakening upgrades; don't chase special talent before roster depth.</span></li>
+            </ul>
+          </article>
+          <article class="system-card reveal delay-1">
+            <p class="system-number">02 / FORMATIONS</p>
+            <h3>Match the damage engine.</h3>
+            <p>The modern march is commander + formation + inscriptions. The wrong formation can erase the reason you bought the commander.</p>
+            <ul>
+              <li><b>Pincer</b><span>Default path for Smite-heavy infantry such as Sun Prime/Bai Qi.</span></li>
+              <li><b>Wedge</b><span>Default skill-damage home for QSH and debuff archers; also useful for combo cavalry.</span></li>
+              <li><b>Arch / alternatives</b><span>Roster-specific. Use only when the kit and inscriptions beat your Wedge/Pincer set.</span></li>
+            </ul>
+          </article>
+          <article class="system-card reveal delay-2">
+            <p class="system-number">03 / CRYSTAL TECH</p>
+            <h3>Economy first, fighting second.</h3>
+            <p>Crystal Tech is temporary and can outweigh commander gaps. Unlock the crystal-income engine early, then fund only the troop branches you field.</p>
+            <ul>
+              <li><b>Opening</b><span>Crystal mine, research center, economy and acquisition nodes.</span></li>
+              <li><b>Combat</b><span>Universal combat value, march cap, then chosen troop branches.</span></li>
+              <li><b>Low spender</b><span>Two or three well-teched marches beat five under-teched marches.</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="investment section wrap" aria-labelledby="investment-title">
+      <div class="section-head reveal">
+        <div>
+          <p class="kicker dark"><span>08</span> RESOURCE DOCTRINE</p>
+          <h2 id="investment-title">Every gold head<br>needs an <em>exit plan.</em></h2>
+        </div>
+        <p>Strength today matters. Shelf life, pairing cost, gear readiness, and exchange value decide whether the account gets stronger.</p>
+      </div>
+
+      <div class="decision-grid">
+        <div class="decision-flow reveal">
+          <div class="decision-start">NEW COMMANDER<br><b>AVAILABLE</b></div>
+          <div class="decision-line"><span></span></div>
+          <div class="decision-question">
+            <span>01</span><p>Can you finish the commander <b>and</b> their deputy?</p>
+            <em>NO → SAVE</em>
+          </div>
+          <div class="decision-line"><span></span></div>
+          <div class="decision-question">
+            <span>02</span><p>Does it match your strongest gear, troop research, and armaments?</p>
+            <em>NO → COMPARE</em>
+          </div>
+          <div class="decision-line"><span></span></div>
+          <div class="decision-question">
+            <span>03</span><p>Do account age, spend level, existing progress, and swap plan support it?</p>
+            <em>NO → SAVE</em>
+          </div>
+          <div class="decision-line"><span></span></div>
+          <div class="decision-question">
+            <span>04</span><p>Does this finish or improve a march—or merely add a weak one?</p>
+            <em>ADD → WAIT</em>
+          </div>
+          <div class="decision-line"><span></span></div>
+          <div class="decision-end">COMMIT<br><b>WITH CONFIDENCE</b></div>
+        </div>
+
+        <div class="priority-board reveal delay-1">
+          <div class="priority-head"><span>ENDGAME REFERENCE BOARD</span><small>NOT A BUILD ORDER · AUG 2026</small></div>
+          <div class="priority-row top"><b>A</b><span>Qin Shi Huang + YSG</span><em>ARCHER</em><strong>Excellent with an archer-ready account</strong></div>
+          <div class="priority-row"><b>B</b><span>Sun Prime + Bai Qi</span><em>INFANTRY</em><strong>Excellent with Pincer + infantry depth</strong></div>
+          <div class="priority-row"><b>C</b><span>Arthur + Achilles</span><em>CAVALRY</em><strong>Excellent with cavalry infrastructure</strong></div>
+          <div class="priority-row"><b>D</b><span>Hermann + Alp</span><em>ARCHER</em><strong>Expansion project, not automatic</strong></div>
+          <div class="priority-row"><b>E</b><span>Liu Che + Philip</span><em>INFANTRY</em><strong>Expansion project, not automatic</strong></div>
+          <div class="priority-foot">
+            <p><b>690</b><span>expertise math—not a rule to leave all early value unused</span></p>
+            <p><b>1</b><span>finished project before the next one begins</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="watch section" aria-labelledby="watch-title">
+      <div class="wrap">
+        <div class="watch-heading reveal">
+          <p class="kicker"><span>09</span> NEW RELEASE WATCH</p>
+          <h2 id="watch-title">New does not mean <em>mandatory.</em></h2>
+        </div>
+        <div class="watch-grid">
+          <article class="watch-card reveal">
+            <div class="watch-status amber">WATCH</div>
+            <p>LEADERSHIP / SUPPORT</p>
+            <h3>Vercingetorix</h3>
+            <strong>A+ field potential</strong>
+            <p>Useful support profile, currently awkward because his best partners are more valuable elsewhere. Build slowly; future synergy could change the call.</p>
+          </article>
+          <article class="watch-card reveal delay-1">
+            <div class="watch-status red">NICHE</div>
+            <p>ENGINEERING / SKILL</p>
+            <h3>Elizabeth I</h3>
+            <strong>Siege specialist</strong>
+            <p>A specialized rally/engineering release, not a universal open-field buy. Most field fighters should preserve sculptures.</p>
+          </article>
+          <article class="watch-card reveal delay-2">
+            <div class="watch-status green">META</div>
+            <p>ARCHER / SKILL</p>
+            <h3>Alp Arslan</h3>
+            <strong>S+ field output</strong>
+            <p>Pierce spreads high-value debuffs and creates a real second archer march with Hermann Prime. Strong—but roster-dependent, not a blind first unlock.</p>
+          </article>
+          <article class="watch-card reveal delay-3">
+            <div class="watch-status gray">SKIP</div>
+            <p>GATHERING / MOBILITY</p>
+            <h3>Yahya ibn Khalid</h3>
+            <strong>Gold gatherer</strong>
+            <p>Does his economy job. He is not a combat project, regardless of creative defense-reduction showcases.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fieldcraft section wrap" aria-labelledby="fieldcraft-title">
+      <div class="fieldcraft-head reveal">
+        <p class="kicker dark"><span>10</span> BATTLEFIELD CONTROL</p>
+        <h2 id="fieldcraft-title">Good reports are<br><em>piloted.</em></h2>
+      </div>
+      <div class="fieldcraft-grid">
+        <article class="reveal"><span>01</span><h3>Enter together</h3><p>Let tanks make contact, then layer AoE. A staggered murderball feeds isolated marches one by one.</p></article>
+        <article class="reveal delay-1"><span>02</span><h3>Focus value</h3><p>Hit exposed skill-damage marches, red-health targets, and overextended cavalry—not the nearest tank by default.</p></article>
+        <article class="reveal delay-2"><span>03</span><h3>Refresh early</h3><p>Leave before your march becomes slow, focused, and expensive. A clean refresh protects troops and returns pressure faster.</p></article>
+        <article class="reveal delay-3"><span>04</span><h3>Read the report</h3><p>Separate severely wounded, damage dealt, damage taken, buffs, tech, and target count. Kill points alone conceal bad trades.</p></article>
+      </div>
+    </section>
+
+    <section class="method section" id="method" aria-labelledby="method-title">
+      <div class="wrap method-grid">
+        <div class="method-copy reveal">
+          <p class="kicker"><span>11</span> METHODOLOGY</p>
+          <h2 id="method-title">A snapshot,<br>not scripture.</h2>
+          <p>The guide prioritizes sources updated in 2026, cross-checks published tier lists against recent player discussions, and distinguishes open-field value from rally, garrison, Canyon, and PvE value.</p>
+          <p>Pairing ranks are editorial synthesis. They assume comparable expertise, correct troop composition, serviceable legendary gear, relevant armaments, and similar tech. Investment advice additionally depends on sculptures, existing progress, available deputies, account age, spend level, swap expectations, and whether you can actually finish the project. Your account—not the tier list—is the constraint.</p>
+          <div class="method-stamp">
+            <span>RESEARCHED</span><b>{{ researched_on.strftime('%d %B %Y')|upper }}</b><small>AMERICA / NEW YORK</small>
+          </div>
+        </div>
+        <div class="confidence reveal delay-1">
+          <p>CONFIDENCE KEY</p>
+          <div><span class="c-high"></span><b>HIGH</b><p>Multiple recent sources and active-player consensus align.</p></div>
+          <div><span class="c-medium"></span><b>MEDIUM</b><p>Strong evidence, but roster and formation change the ordering.</p></div>
+          <div><span class="c-watch"></span><b>WATCH</b><p>New release or incomplete pairing ecosystem; do not overcommit.</p></div>
+          <aside><b>Important</b><p>RoK has no official competitive balance dataset or public global battle-report API. Any “exact” universal ranking should be treated skeptically.</p></aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="sources section wrap" id="sources" aria-labelledby="sources-title">
+      <div class="section-head reveal">
+        <div>
+          <p class="kicker dark"><span>12</span> SOURCE LOG</p>
+          <h2 id="sources-title">Read the <em>evidence.</em></h2>
+        </div>
+        <p>Direct links are provided so you can audit the snapshot and check for newer releases.</p>
+      </div>
+      <div class="source-list">
+        {% for source in sources %}
+        <a class="source-row reveal" href="{{ source.url }}" target="_blank" rel="noopener noreferrer">
+          <span>{{ '%02d'|format(loop.index) }}</span>
+          <div><h3>{{ source.name }}</h3><p>{{ source.use }}</p></div>
+          <time>{{ source.date }}</time>
+          <b aria-hidden="true">↗</b>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div><span class="brand-mark">R</span><p><b>ROK META</b><small>Independent field intelligence</small></p></div>
+      <p>Rise of Kingdoms is a trademark of Lilith Games. This unofficial guide is not affiliated with or endorsed by Lilith.</p>
+      <div><a href="/api/meta">JSON API ↗</a><a href="#top">Back to top ↑</a></div>
+    </div>
+  </footer>
+</body>
+</html>
